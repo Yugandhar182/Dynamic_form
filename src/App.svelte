@@ -8,9 +8,7 @@
   let email = '';
   let mobile = '';
 
-  function addFormField() {
-    formFields = [...formFields, { label: '', value: '' }];
-  }
+ 
 
   function fetchData() {
     fetch(`https://api.recruitly.io/api/candidateform/details/${formId}?apiKey=TEST45684CB2A93F41FC40869DC739BD4D126D77`)
@@ -21,7 +19,7 @@
         email = data.email;
         mobile = data.mobile;
         // Update the form fields based on the fetched data
-        formFields = Object.entries(data).map(([label, value]) => ({ label, value }));
+        formFields = Object.entries(data.formFields).map(([label, value]) => ({ label, value }));
       })
       .catch(error => {
         console.error('API Error:', error);
@@ -29,8 +27,15 @@
   }
 
   function handleSubmit() {
+    // Clear the formFields array before populating it
+    formFields = [];
+
+    // Push the form input values to the formFields array
+    formFields.push({ label: 'Fullname', value: fullname });
+    formFields.push({ label: 'Email', value: email });
+    formFields.push({ label: 'Mobile', value: mobile });
+
     // Perform any necessary actions on form submission
-    // You can access the form data using the component's reactive variables, such as fullname, email, mobile, and formFields
     console.log('Form Submitted');
     console.log('Fullname:', fullname);
     console.log('Email:', email);
@@ -42,6 +47,7 @@
     // Add an event listener to form fields
     function handleFieldChange(event) {
       formId = event.target.value;
+      fetchData(); // Fetch data when the form ID is changed
     }
 
     const fields = document.querySelectorAll('input[type="text"]');
@@ -81,15 +87,8 @@
       <input type="text" id="mobile" class="form-control" bind:value={mobile} />
     </div>
 
-    {#each formFields as field, i}
-      <div class="mb-3">
-        <label for="field{i}" class="form-label">{field.label}</label>
-        <input type="text" id="field{i}" class="form-control" bind:value={field.value} />
-      </div>
-    {/each}
-
-    <button type="button" class="btn btn-primary" on:click={addFormField}>Add Field</button>
-    <button type="button" class="btn btn-primary" on:click={fetchData}>Fetch Data</button>
+   
+   
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
