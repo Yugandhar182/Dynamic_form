@@ -136,14 +136,14 @@
           </div>
           
           <div class="form-group">
-            <div class="select-wrapper">
+           
             <label   for="otherScheduledCaste">Other: Scheduled Caste</label>
             <input type="text" class="form-control" id="otherScheduledCaste" bind:value="{otherScheduledCaste}" placeholder="Other: Scheduled Caste">
           </div>
           <div class="form-group">
             <label  for="GENDER">GENDER</label>
             <input type="text" class="form-control" id="GENDER" bind:value="{GENDER}" placeholder="GENDER">
-          </div>
+         
         </div>
 
           <!-- Add more form fields here based on your requirements -->
