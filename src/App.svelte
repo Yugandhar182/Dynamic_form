@@ -16,7 +16,6 @@
   let fullNRICFINPassportNumber = '';
   let dateOfBirth = '';
   let sectors = '';
-  let industries = '';
   let headline = '';
   let gender = '';
   let otherScheduledCaste = '';
@@ -39,14 +38,17 @@
             <input type="email" class="form-control" id="email" bind:value="{email}" placeholder="Enter Your email">
           </div>
           <div class="form-group">
-            <label  for="mobile">Mobile</label>
-            <input type="text" class="form-control" id="mobile" bind:value="{mobile}" placeholder="Enter your Mobile number">
-            <select id="mobile" class="form-control" bind:value={mobile}>
-              <option value="" disabled>Select a mobile number</option>
-              <option value="+1">+1 (USA)</option>
-              <option value="+91">+91 (India)</option>
-              <option value="+44">+44 (UK)</option>
-              <option value="+353">+353 (Ireland)</option>
+            <label class="blue-label" for="mobile">Mobile</label>
+            
+              <input type="text" class="form-control" id="mobile" bind:value="{mobile}" placeholder="Enter your Mobile number"  list="mobileOptions">
+              <datalist id="mobileOptions">
+                <option value="+1 (USA)">
+                <option value="+44 (UK)">
+                <option value="+44 (England)">
+                <option value="+91 (India)">
+                <option value="+94 (Sri Lanka)">
+              </datalist>
+           
           </div>
           <div class="form-group">
             <label   for="candidateCv">Candidate CV</label>
@@ -58,7 +60,15 @@
           </div>
           <div class="form-group">
             <label  for="languages">Languages</label>
-            <input type="text" class="form-control" id="languages" bind:value="{languages}" placeholder="Languages">
+            <input type="text" class="form-control" id="languages" bind:value="{languages}" placeholder="Languages" list="Langauagesoptions">
+            <datalist id="Langauagesoptions">
+              <option value="English">
+              <option value="Telugu">
+              <option value="Hindi">
+              <option value="Kanada">
+              <option value="Tamil">
+              <option value="Malayalam">
+            </datalist>
           </div>
           <div class="form-group">
             <label>Experience</label>
@@ -126,6 +136,7 @@
           </div>
           
           <div class="form-group">
+            <div class="select-wrapper">
             <label   for="otherScheduledCaste">Other: Scheduled Caste</label>
             <input type="text" class="form-control" id="otherScheduledCaste" bind:value="{otherScheduledCaste}" placeholder="Other: Scheduled Caste">
           </div>
@@ -133,6 +144,7 @@
             <label  for="GENDER">GENDER</label>
             <input type="text" class="form-control" id="GENDER" bind:value="{GENDER}" placeholder="GENDER">
           </div>
+        </div>
 
           <!-- Add more form fields here based on your requirements -->
 
@@ -149,4 +161,27 @@
 	  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	/>
   </svelte:head>
- 
+  <style>
+    .blue-label {
+      color: blue;
+    }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .select-wrapper {
+    position: relative;
+  }
+
+  .select-wrapper input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  </style>
