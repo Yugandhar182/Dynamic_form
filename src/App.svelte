@@ -30,10 +30,7 @@
   </script>
   
   <main>
-	<div class="container">
-	  <div class="row">
-		<div class="col-md-6 offset-md-3">
-		  <h2>Job Application Form</h2>
+
 		  <form on:submit="{handleSubmit}">
 			<div class="form-group">
 			  <label for="fullName">Full Name</label>
@@ -120,9 +117,7 @@
   
 			<button type="submit" class="btn btn-primary">Submit</button>
 		  </form>
-		</div>
-	  </div>
-	</div>
+	
   </main>
   
  
