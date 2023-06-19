@@ -2,12 +2,12 @@
   import { onMount } from 'svelte';
 
   let formFields = [];
-  let formId = "72fbc0da-3810-4ad9-a922-1845f8974eb7"; // Set the default form ID
+  ; // Set the default form ID
 
   async function generateDynamicForm() {
-    const apiKey = "TEST45684CB2A93F41FC40869DC739BD4D126D77";
+    
 
-    const response = await fetch(`https://api.recruitly.io/api/candidateform/details/${formId}?apiKey=${apiKey}`);
+    const response = await fetch(`https://api.recruitly.io/api/candidateform/details/72fbc0da-3810-4ad9-a922-1845f8974eb7?apiKey=TEST45684CB2A93F41FC40869DC739BD4D126D77`);
     const data = await response.json();
 
     formFields = data.fields;
