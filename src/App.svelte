@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
 
   let formFields = [];
-  ; // Set the default form ID
+ 
 
   async function generateDynamicForm() {
     
