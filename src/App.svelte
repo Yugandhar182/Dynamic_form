@@ -38,7 +38,7 @@
             <input type="email" class="form-control" id="email" bind:value="{email}" placeholder="Enter Your email">
           </div>
           <div class="form-group">
-            <label class="blue-label" for="mobile">Mobile</label>
+            <label for="mobile">Mobile</label>
             
               <input type="text" class="form-control" id="mobile" bind:value="{mobile}" placeholder="Enter your Mobile number"  list="mobileOptions">
               <datalist id="mobileOptions">
