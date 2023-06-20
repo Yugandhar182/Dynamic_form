@@ -14,11 +14,11 @@
       formId,
     };
 
-    fetch('https://api.recruitly.io/api/candidateform/details', {
+    fetch('https://api.recruitly.io/api/candidateform/details/${formId}?apiKey=TEST45684CB2A93F41FC40869DC739BD4D126D77', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'apiKey': 'TEST45684CB2A93F41FC40869DC739BD4D126D77'
+        
       },
       body: JSON.stringify(formData)
     })
