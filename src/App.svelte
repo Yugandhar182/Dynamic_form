@@ -4,7 +4,7 @@
   import 'bootstrap/dist/css/bootstrap.min.css';
 
   let formFields = [];
-  let formId = '72fbc0da-3810-4ad9-a922-1845f8974eb7';
+  let formId = '';
   let fullname = '';
   let email = '';
   let mobile = '';
@@ -56,6 +56,7 @@
     formFields = [];
 
     // Push the form input values to the formFields array
+if (formId === '72fbc0da-3810-4ad9-a922-1845f8974eb7'){
     formFields.push({ label: 'fullname', value: fullname });
     formFields.push({ label: 'Email', value: email });
     formFields.push({ label: 'Mobile', value: mobile });
@@ -75,6 +76,14 @@
     formFields.push({ label: 'Gender', value: gender });
     formFields.push({ label: 'Other: Scheduled Caste', value: otherScheduledCaste });
     formFields.push({ label: 'GENDER', value: GENDER });
+}
+ else if (formId === 'a4fed172-671e-4d3e-810e-04f987b1c032'){
+    formFields.push({ label: 'fullname', value: fullname });
+    formFields.push({ label: 'Email', value: email });
+    formFields.push({ label: 'Mobile', value: mobile });
+    formFields.push({ label: 'Candidate CV', value: CandidateCv });
+    formFields.push({ label: 'Address/Location', value: address });
+}
 
     // Perform any necessary actions on form submission
     console.log('Form Fields:', formFields);
@@ -95,6 +104,7 @@
 <main>
   
   <form on:submit="{handleSubmit}">
+ {#if formId === '72fbc0da-3810-4ad9-a922-1845f8974eb7'}
     <div class="form-group">
       <label  for="fullName"> Enter Full Name</label>
       <input type="text" class="form-control" id="fullname" bind:value="{fullname}"placeholder="Enter Full Name">
@@ -207,7 +217,37 @@
       <input type="text" class="form-control" id="GENDER" bind:value="{GENDER}" placeholder="GENDER">
    
   </div>
-
+ {:else if formId === 'a4fed172-671e-4d3e-810e-04f987b1c032'}
+ <div class="form-group">
+      <label  for="fullName"> Enter Full Name</label>
+      <input type="text" class="form-control" id="fullname" bind:value="{fullname}"placeholder="Enter Full Name">
+    </div>
+    <div class="form-group">
+      <label   for="email">Email</label>
+      <input type="email" class="form-control" id="email" bind:value="{email}" placeholder="Enter Your email">
+    </div>
+    <div class="form-group">
+      <label for="mobile">Mobile</label>
+      
+        <input type="text" class="form-control" id="mobile" bind:value="{mobile}" placeholder="Enter your Mobile number"  list="mobileOptions">
+        <datalist id="mobileOptions">
+          <option value="+1 (USA)">
+          <option value="+44 (UK)">
+          <option value="+44 (England)">
+          <option value="+91 (India)">
+          <option value="+94 (Sri Lanka)">
+        </datalist>
+     
+    </div>
+    <div class="form-group">
+      <label   for="candidateCv">Candidate CV</label>
+      <input type="file" class="form-control" id="candidateCv" bind:value="{CandidateCv}" >
+    </div>
+    <div class="form-group">
+      <label  for="address">Address/Location</label>
+      <textarea class="form-control" id="address" rows="3" bind:value="{address}" placeholder="Address/Location"></textarea>
+    </div>
+{/if}
     
 
     <button type="submit" class="btn btn-primary">Submit</button>
