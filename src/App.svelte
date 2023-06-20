@@ -7,7 +7,8 @@
   let fullname = '';
   let email = '';
   let mobile = '';
-
+  let address='';
+  
  
 
   function fetchData() {
@@ -34,12 +35,10 @@
     formFields.push({ label: 'Fullname', value: fullname });
     formFields.push({ label: 'Email', value: email });
     formFields.push({ label: 'Mobile', value: mobile });
+    formFields.push({ label: 'address', value: address});
 
     // Perform any necessary actions on form submission
-    console.log('Form Submitted');
-    console.log('Fullname:', fullname);
-    console.log('Email:', email);
-    console.log('Mobile:', mobile);
+    
     console.log('Form Fields:', formFields);
   }
 
@@ -72,19 +71,23 @@
 
 <div class="form-container">
   <form on:submit|preventDefault={handleSubmit}>
-    <div class="mb-3">
+    <div class="form-group">
       <label for="fullname" class="form-label">Fullname</label>
       <input type="text" id="fullname" class="form-control" bind:value={fullname} />
     </div>
 
-    <div class="mb-3">
+    <div class="form-group">
       <label for="email" class="form-label">Email</label>
       <input type="text" id="email" class="form-control" bind:value={email} />
     </div>
 
-    <div class="mb-3">
+    <div class="form-group">
       <label for="mobile" class="form-label">Mobile</label>
       <input type="text" id="mobile" class="form-control" bind:value={mobile} />
+    </div>
+    <div class="form-group">
+      <label for="address" class="form-label">Address/Location</label>
+      <input type="text" id="address" class="form-control" bind:value={address} />
     </div>
 
    
