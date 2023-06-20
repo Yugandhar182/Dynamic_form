@@ -7,12 +7,21 @@
   let fullname = '';
   let email = '';
   let mobile = '';
-  let address='';
-  
- 
+  let address = '';
 
   function fetchData() {
-    fetch(`https://api.recruitly.io/api/candidateform/details/${formId}?apiKey=TEST45684CB2A93F41FC40869DC739BD4D126D77`)
+    const formData = {
+      formId,
+    };
+
+    fetch('https://api.recruitly.io/api/candidateform/details', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apiKey': 'TEST45684CB2A93F41FC40869DC739BD4D126D77'
+      },
+      body: JSON.stringify(formData)
+    })
       .then(response => response.json())
       .then(data => {
         console.log('API Response:', data);
@@ -35,10 +44,9 @@
     formFields.push({ label: 'Fullname', value: fullname });
     formFields.push({ label: 'Email', value: email });
     formFields.push({ label: 'Mobile', value: mobile });
-    formFields.push({ label: 'address', value: address});
+    formFields.push({ label: 'Address', value: address });
 
     // Perform any necessary actions on form submission
-    
     console.log('Form Fields:', formFields);
   }
 
@@ -69,7 +77,7 @@
   }
 </style>
 
-<div class="form-container">
+
   <form on:submit|preventDefault={handleSubmit}>
     <div class="form-group">
       <label for="fullname" class="form-label">Fullname</label>
@@ -85,13 +93,12 @@
       <label for="mobile" class="form-label">Mobile</label>
       <input type="text" id="mobile" class="form-control" bind:value={mobile} />
     </div>
+
     <div class="form-group">
       <label for="address" class="form-label">Address/Location</label>
       <input type="text" id="address" class="form-control" bind:value={address} />
     </div>
 
-   
-   
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-</div>
+
