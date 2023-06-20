@@ -14,14 +14,14 @@
       formId,
     };
 
-    fetch('https://api.recruitly.io/api/candidateform/details/${formId}?apiKey=TEST45684CB2A93F41FC40869DC739BD4D126D77', {
-      method: 'POST',
+      fetch(`https://api.recruitly.io/api/candidateform/details/${formId}?apiKey=TEST45684CB2A93F41FC40869DC739BD4D126D77`, {
+     method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        
-      },
+       'Content-Type': 'application/json',
+       },
       body: JSON.stringify(formData)
-    })
+        })
+
       .then(response => response.json())
       .then(data => {
         console.log('API Response:', data);
