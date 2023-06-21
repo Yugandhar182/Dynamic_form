@@ -60,7 +60,7 @@
   {#if field.code === 'CV'}
   <div class="form-group">
     <h4>{field.label}</h4>
-    <input class="form-control-file" type="file"  name={field.code} accept=".pdf,.doc,.docx" >
+    <input class="form-control-file w-100" type="file"  name={field.code} accept=".pdf,.doc,.docx" >
   </div>
 {/if}
   {#if field.code === 'MOBILE'}
